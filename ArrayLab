@@ -43,24 +43,31 @@ public class ArrayList{
     //returns removed value
     public int remove(int index){
         int removedVal = data[index];
-        for(int i = 0; i>=data[index];i++){  
+        for(int i = index; i<=data.length-1;i++){  
           data[index-1]=data[index];
-          last=last-1;
         }
-        return removedVal;
+        last=last-1;
+        return temp;
     }
     //Precondition:  0 <= index <= last+1
     //Inserts newValue at index.  Everything from index on gets shifted up
     public void add(int index, int newValue){
-        while(index<last && index>0){
-            
+        if(last==data.length-1){
+           resize();
+           int temp= data[index];
+        }
+        else{
+            data[index]=newValue;
+            for(int i=index; i=data.length-1;i++){
+                data[index+1]=data[index];//original value gets shifted 1 position up
+            }
+            last=last+1;
         }
     }
-    //this method should call resize---^
     
     //adds newValue to the end of the list
     public void add(int newValue){
-        
+        add(last+1,newValue);
     }
 
 
@@ -68,7 +75,8 @@ public class ArrayList{
     //This is intentional.
     //This method should double the capacity
     private void resize(){
-        
+        int []temp= newTemp[2*data.length]
+        for(int i=0; i
     }
 
 
@@ -82,8 +90,8 @@ public class ArrayList{
     //returns true if two lists have exactly the same elements
     //in exactly the same order
     public boolean equals(ArrayList otherList){
-        for(int i=0; i>=otherList; i++){
-            i=otherList[] -1;
+        for(int i=0; i<=otherList; i++){
+            i=otherList[]
             i++;
             return true;
         }
